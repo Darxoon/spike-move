@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using TMPro;
@@ -21,15 +20,18 @@ public class TooltipContent : MonoBehaviour
         public string description;
     }
 
-    // other objects
+    [Header("References")] 
+
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private FollowMouse selection;
 
-    // texts 
+    [Header("Texts")] 
+
     [SerializeField] private TMP_Text nameLabel;
     [SerializeField] private TMP_Text descriptionLabel;
 
-    // tile dictionary
+    [Header("Tile Dictionary")] 
+
     [SerializeField] private EditorTile[] tilesEditor;
     [SerializeField] private TooltipTile missingTile;
     private Dictionary<Tile, TooltipTile> tiles = new Dictionary<Tile, TooltipTile>();
