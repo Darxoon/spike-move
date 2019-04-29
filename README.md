@@ -8,16 +8,6 @@ In the game you are a creature that is on a hexagonal grid and needs to move to 
 It's still WIP, but the source code will always be open source under the GNU GPLv3. 
 Also  the name is really not final, this is the first thing I came up with. Pros would call this a codename.
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ---------------------------------
 
