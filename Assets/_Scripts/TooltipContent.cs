@@ -24,6 +24,8 @@ public class TooltipContent : MonoBehaviour
 
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private FollowMouse selection;
+    [SerializeField] private GameObject moveActionIndicator;
+    [SerializeField] private Player player;
 
     [Header("Texts")] 
 
@@ -40,6 +42,8 @@ public class TooltipContent : MonoBehaviour
     private Tile currentTile;
     private Tile newTile;
 
+    public Vector3Int currentTilePos; 
+
     // other 
     private TooltipTile tooltipTile;
 
@@ -49,6 +53,7 @@ public class TooltipContent : MonoBehaviour
 
     private void Awake()
     {
+        /* convert tilesEditor Array to tiles Dict */
         foreach (EditorTile item in tilesEditor)
         {
             tiles.Add(item.tile, new TooltipTile { name = item.name, description = item.description });
@@ -57,6 +62,7 @@ public class TooltipContent : MonoBehaviour
 
     private void Update()
     {
+        /* if it focuses a new tile type, update the tooltip info */
         newTile = tilemap.GetTile(selection.gridCoords) as Tile; 
         if(newTile != currentTile)
         {
@@ -72,5 +78,34 @@ public class TooltipContent : MonoBehaviour
             nameLabel.text = tooltipTile.name;
             descriptionLabel.text = tooltipTile.description;
         }
+
+        // if it focuses a new tile
+        if (selection.gridCoords != currentTilePos)
+        {
+            currentTilePos = selection.gridCoords;
+
+            //Debug.Log(currentTilePos);
+
+            /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
+            Vector3Int relativeGridCoords = selection.gridCoords - player.gridPos;
+            if ((relativeGridCoords.x < 1 && relativeGridCoords.x >= -1 && relativeGridCoords.y <= 1 && relativeGridCoords.y >= -1 && relativeGridCoords != new Vector3Int(0, 0, 0)) 
+                || (relativeGridCoords.x == 1 && relativeGridCoords.y == 0)) 
+
+                leftClickAction = ClickAction.MoveTo;
+            else
+                leftClickAction = ClickAction.None;
+        }
+
+
+
+
     }
+
+
+    private void OnGUI()
+    {
+        moveActionIndicator.SetActive(leftClickAction == ClickAction.MoveTo);
+    }
+
+
 }

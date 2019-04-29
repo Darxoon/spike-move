@@ -62,8 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\Classes\ClickAction.cs" />
     <Compile Include="Assets\_Scripts\FollowMouse.cs" />
+    <Compile Include="Assets\_Scripts\NotComponents\ClickAction.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
     <Compile Include="Assets\_Scripts\TooltipContent.cs" />
     <Compile Include="Assets\_Scripts\TooltipFollow.cs" />
