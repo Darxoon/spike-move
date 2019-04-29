@@ -597,7 +597,6 @@ GameObject:
   - component: {fileID: 699490899}
   - component: {fileID: 699490901}
   - component: {fileID: 699490900}
-  - component: {fileID: 699490902}
   m_Layer: 5
   m_Name: Box
   m_TagString: Untagged
@@ -617,6 +616,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802248962}
+  - {fileID: 1479300811}
   - {fileID: 1873744697}
   m_Father: {fileID: 1763094852}
   m_RootOrder: 0
@@ -663,22 +663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699490898}
   m_CullTransparentMesh: 0
---- !u!114 &699490902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699490898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a3406833d5e07458170ce93ce1ee31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveActionYOffset: -29
-  moveActionHeightAdd: 1
-  tooltipContent: {fileID: 1763094856}
-  initialScale: {x: 0, y: 0, z: 0}
 --- !u!1 &700121582
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +906,7 @@ GameObject:
   - component: {fileID: 1043321656}
   - component: {fileID: 1043321657}
   - component: {fileID: 1043321658}
+  - component: {fileID: 1043321659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1005,7 +990,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 390856335}
   tooltipContent: {fileID: 1763094856}
+  selection: {fileID: 1519535477}
+  tileEventInit: {fileID: 1043321659}
+  tilemap: {fileID: 591447770}
   gridPos: {x: 0, y: 0, z: 0}
+  health: 5
+--- !u!114 &1043321659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043321655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae7909dd9cb3841b9a5e6b8134222b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1043321658}
 --- !u!1 &1414430604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1081,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414430604}
+  m_CullTransparentMesh: 0
+--- !u!1 &1479300810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479300811}
+  - component: {fileID: 1479300813}
+  - component: {fileID: 1479300812}
+  m_Layer: 5
+  m_Name: seperator (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1479300811
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479300810}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.7336502, y: 0.043751497, z: 1}
+  m_Children: []
+  m_Father: {fileID: 699490899}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -31.7}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1479300812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479300810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1479300813
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479300810}
   m_CullTransparentMesh: 0
 --- !u!1 &1519535475
 GameObject:
@@ -1286,34 +1362,42 @@ MonoBehaviour:
   tilemap: {fileID: 591447770}
   selection: {fileID: 1519535477}
   moveActionIndicator: {fileID: 1918851990}
-  player: {fileID: 0}
+  player: {fileID: 1043321658}
   nameLabel: {fileID: 1802248963}
   descriptionLabel: {fileID: 1873744698}
   tilesEditor:
   - tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
     name: harmful tile
     description: hurts you 1 hp
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     name: heart
     description: Fills your hp to maximum
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     name: used heart
     description: was already used
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     name: normal plate
     description: doesn't do anything
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     name: spawn
     description: Here your player spawns
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: b2d83035f90704041a743e9314a3e038, type: 2}
     name: du stinkst du fettsack skateIEH
     description: Was machst du hier denn auch?!
+    tileEvent: 0
   - tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     name: Goal
     description: the eNd of the lEvEl
+    tileEvent: 0
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
+    tileEvent: 0
   currentTilePos: {x: 0, y: 0, z: 0}
   leftClickAction: 0
   rightClickAction: 0
@@ -1604,7 +1688,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 699490899}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1749,7 +1833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1918851991
 RectTransform:
   m_ObjectHideFlags: 0

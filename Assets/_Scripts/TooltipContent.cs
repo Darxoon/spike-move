@@ -7,17 +7,19 @@ public class TooltipContent : MonoBehaviour
 {
     // classes
     [System.Serializable]
-    struct TooltipTile
+    public struct TooltipTile
     {
         public string name;
         public string description;
+        public TileEvent tileEvent;
     }
     [System.Serializable] 
-    struct EditorTile
+    public struct EditorTile
     {
         public Tile tile;
         public string name;
         public string description;
+        public TileEvent tileEvent;
     }
 
     [Header("References")] 
@@ -46,10 +48,13 @@ public class TooltipContent : MonoBehaviour
 
     // other 
     private TooltipTile tooltipTile;
+    private Vector3Int relativeGridCoords;
 
     // click actions 
     public ClickAction leftClickAction;
     public ClickAction rightClickAction;
+
+    public Dictionary<Tile, TooltipTile> Tiles => tiles;
 
     private void Awake()
     {
@@ -87,16 +92,14 @@ public class TooltipContent : MonoBehaviour
             //Debug.Log(currentTilePos);
 
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
-            Vector3Int relativeGridCoords = selection.gridCoords - player.gridPos;
+            relativeGridCoords = selection.gridCoords - player.gridPos;
             if ((relativeGridCoords.x < 1 && relativeGridCoords.x >= -1 && relativeGridCoords.y <= 1 && relativeGridCoords.y >= -1 && relativeGridCoords != new Vector3Int(0, 0, 0)) 
                 || (relativeGridCoords.x == 1 && relativeGridCoords.y == 0)) 
-
                 leftClickAction = ClickAction.MoveTo;
             else
                 leftClickAction = ClickAction.None;
         }
-
-
+        
 
 
     }
@@ -106,6 +109,7 @@ public class TooltipContent : MonoBehaviour
     {
         moveActionIndicator.SetActive(leftClickAction == ClickAction.MoveTo);
     }
+
 
 
 }
