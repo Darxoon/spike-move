@@ -43,6 +43,10 @@ public class TooltipContent : MonoBehaviour
     // other 
     private TooltipTile tooltipTile;
 
+    // click actions 
+    public ClickAction leftClickAction;
+    public ClickAction rightClickAction;
+
     private void Awake()
     {
         foreach (EditorTile item in tilesEditor)

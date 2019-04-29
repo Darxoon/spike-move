@@ -673,6 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043321656}
   - component: {fileID: 1043321657}
+  - component: {fileID: 1043321658}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -742,6 +743,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1043321658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043321655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edcfecd3d0d1aa4da95a97022e9a447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1414430604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1060,8 @@ MonoBehaviour:
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
+  leftClickAction: 0
+  rightClickAction: 0
 --- !u!1 &1802248961
 GameObject:
   m_ObjectHideFlags: 0
