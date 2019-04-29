@@ -1,6 +1,7 @@
 # spike-move
 
 This game was originally my entry for Ludum Dare 44, but because I didn't have enough time, I wasn't able to submit it. 
+
 In the game you are a creature that is on an hexagonal grid and needs to move to the goal, but many tiles on the floor hurt you when you step on them.
 
 -----------------------
