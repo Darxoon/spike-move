@@ -11,6 +11,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Rect currentView;
     [SerializeField] private Vector3 currentCamPos;
 
+    private void Start()
+    {
+        currentView.width = view.width;
+        currentView.height = view.height;
+    }
+
     private void Update()
     {
 
@@ -21,19 +27,31 @@ public class CameraController : MonoBehaviour
 
         if(currentView != view)
         {
-            if (view.x < cameraBounds.camBounds.x || view.y < cameraBounds.camBounds.y
-                || view.y + view.height > cameraBounds.camBounds.y + cameraBounds.camBounds.height
-                || view.x + view.width > cameraBounds.camBounds.x + cameraBounds.camBounds.width)
+            // Horizontal
+            if (view.x < cameraBounds.camBounds.x || view.x + view.width > cameraBounds.camBounds.x + cameraBounds.camBounds.width)
             {
                 // going past the border
-                view = currentView;
-                transform.position = currentCamPos;
+                view.x = currentView.x;
+                transform.position = new Vector3(currentCamPos.x, transform.position.y, transform.position.z);
             }
             else
             {
                 // staying inside the border
-                currentView = view;
-                currentCamPos = transform.position;
+                currentView.x = view.x;
+                currentCamPos.x = transform.position.x;
+            }
+            // Vertical
+            if (view.y < cameraBounds.camBounds.y || view.y + view.height > cameraBounds.camBounds.y + cameraBounds.camBounds.height)
+            {
+                // going past the border
+                view.y = currentView.y;
+                transform.position = new Vector3(transform.position.x, currentCamPos.y, transform.position.z);
+            }
+            else
+            {
+                // staying inside the border
+                currentView.y = view.y;
+                currentCamPos.y = transform.position.y;
             }
         }
 

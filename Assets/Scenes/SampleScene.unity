@@ -209,6 +209,14 @@ MonoBehaviour:
     y: 0
     width: 48.45
     height: 40.4
+  cameraBounds: {fileID: 1359817501}
+  currentView:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  currentCamPos: {x: 0, y: 0, z: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
