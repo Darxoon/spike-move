@@ -1393,7 +1393,7 @@ MonoBehaviour:
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
-    tileEvent: 1
+    tileEvent: 0
   currentTilePos: {x: 0, y: 0, z: 0}
   leftClickAction: 0
   rightClickAction: 0
