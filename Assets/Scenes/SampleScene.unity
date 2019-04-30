@@ -1373,31 +1373,27 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     name: heart
     description: Fills your hp to maximum
-    tileEvent: 0
+    tileEvent: 2
   - tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     name: used heart
     description: was already used
-    tileEvent: 0
+    tileEvent: 1
   - tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     name: normal plate
     description: doesn't do anything
-    tileEvent: 0
+    tileEvent: 1
   - tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     name: spawn
     description: Here your player spawns
-    tileEvent: 0
-  - tile: {fileID: 11400000, guid: b2d83035f90704041a743e9314a3e038, type: 2}
-    name: du stinkst du fettsack skateIEH
-    description: Was machst du hier denn auch?!
-    tileEvent: 0
+    tileEvent: 1
   - tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     name: Goal
     description: the eNd of the lEvEl
-    tileEvent: 0
+    tileEvent: 3
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
-    tileEvent: 0
+    tileEvent: 1
   currentTilePos: {x: 0, y: 0, z: 0}
   leftClickAction: 0
   rightClickAction: 0

@@ -24,21 +24,20 @@ public class Player : MonoBehaviour
         if (tooltipContent.leftClickAction == ClickAction.MoveTo && Input.GetMouseButtonDown(0))
         {
             transform.position = selection.transform.position + new Vector3(0f, 0.61f, -2f);
-
+            // correct
             newTile = tilemap.GetTile(selection.gridCoords) as Tile;
-
-
+            // not working
             try
             {
-                tileEvent = tooltipContent.Tiles[newTile].tileEvent;
+                tileEvent = tooltipContent.Tiles[newTile].tileEvent; 
             }
             catch (System.Exception)
             {
-                tileEvent = TileEvent.TileSafe;
+                tileEvent = TileEvent.Missing;
             }
 
-
-            tileEventInit.DoAction(tileEvent);
+            Debug.Log(tileEvent);
+            //tileEventInit.DoAction(tileEvent);
             
         }
 

@@ -61,7 +61,7 @@ public class TooltipContent : MonoBehaviour
         /* convert tilesEditor Array to tiles Dict */
         foreach (EditorTile item in tilesEditor)
         {
-            tiles.Add(item.tile, new TooltipTile { name = item.name, description = item.description });
+            tiles.Add(item.tile, new TooltipTile { name = item.name, description = item.description, tileEvent = item.tileEvent });
         }
     }
 
