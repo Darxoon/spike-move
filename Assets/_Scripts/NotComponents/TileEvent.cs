@@ -1,6 +1,6 @@
 ﻿public enum TileEvent
 {
-    Missing
+    Missing,
 
     TileDamage1, 
     TileSafe, 
