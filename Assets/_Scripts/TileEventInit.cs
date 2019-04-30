@@ -21,7 +21,13 @@ public class TileEventInit : MonoBehaviour
 
             // Tile Goal
             case TileEvent.TileGoal:
-                Debug.Log("goal goal goal!");
+                LevelManager.instance.LoadExit(0);
+                break;
+            case TileEvent.TileGoal2:
+                LevelManager.instance.LoadExit(1);
+                break;
+            case TileEvent.TileGoal3:
+                LevelManager.instance.LoadExit(2);
                 break;
 
             // Tile Goal

@@ -5,5 +5,7 @@
     TileDamage1, 
     TileSafe, 
     TileHeart, 
-    TileGoal
+    TileGoal,
+    TileGoal2,
+    TileGoal3,
 }

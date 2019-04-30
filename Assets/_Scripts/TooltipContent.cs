@@ -16,8 +16,8 @@ public class TooltipContent : MonoBehaviour
     [System.Serializable] 
     public struct EditorTile
     {
-        public Tile tile;
         public string name;
+        public Tile tile;
         public string description;
         public TileEvent tileEvent;
     }

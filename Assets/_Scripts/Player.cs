@@ -5,6 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
+    [Header("Debugging")]
+
+    [SerializeField] private bool doTileEvents = true;
+
     [Header("References")]
 
     [SerializeField] private Grid grid;
@@ -45,7 +49,8 @@ public class Player : MonoBehaviour
             }
 
             Debug.Log(tileEvent);
-            //tileEventInit.DoAction(tileEvent);
+            if (doTileEvents)
+                tileEventInit.DoAction(tileEvent);
 
         }
         // Set gridCoords
@@ -55,6 +60,9 @@ public class Player : MonoBehaviour
         {
             currentHealth = health;
             healthBar.UpdateHealth();
+
+            if (health == 0)
+                LevelManager.instance.RestartLevel();
         }
     }
 }

@@ -175,7 +175,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -191,24 +190,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3ed2f6bc6b5e134da782a6a8c5fef18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  view:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 48.45
-    height: 40.4
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1062,7 +1043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edcfecd3d0d1aa4da95a97022e9a447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doTileEvents: 1
   grid: {fileID: 390856335}
   tilemap: {fileID: 591447770}
   tooltipContent: {fileID: 1763094856}
@@ -1115,55 +1095,6 @@ Transform:
   - {fileID: 390856336}
   - {fileID: 1043321656}
   - {fileID: 1519535476}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1359817500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1359817502}
-  - component: {fileID: 1359817501}
-  m_Layer: 0
-  m_Name: CameraBounds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1359817501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359817500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7991b59278349304eaa5ec77ef19fb4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camBounds:
-    serializedVersion: 2
-    x: -24.23
-    y: -20.2
-    width: 84.2
-    height: 40.4
---- !u!4 &1359817502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359817500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.8, y: 14.5, z: -2540.7915}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1910,7 +1841,7 @@ RectTransform:
   - {fileID: 1486382146}
   - {fileID: 1758320600}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
