@@ -92,7 +92,7 @@ public class TooltipContent : MonoBehaviour
             //Debug.Log(currentTilePos);
 
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
-            relativeGridCoords = selection.gridCoords - player.gridPos;
+            relativeGridCoords = selection.gridCoords - player.gridCoords;
             if ((relativeGridCoords.x < 1 && relativeGridCoords.x >= -1 && relativeGridCoords.y <= 1 && relativeGridCoords.y >= -1 && relativeGridCoords != new Vector3Int(0, 0, 0)) 
                 || (relativeGridCoords.x == 1 && relativeGridCoords.y == 0)) 
                 leftClickAction = ClickAction.MoveTo;

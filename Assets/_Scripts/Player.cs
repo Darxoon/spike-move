@@ -5,22 +5,30 @@ using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
+    [Header("References")]
 
     [SerializeField] private Grid grid;
-    [SerializeField] private TooltipContent tooltipContent;
-    [SerializeField] private FollowMouse selection;
-    [SerializeField] private TileEventInit tileEventInit;
     [SerializeField] private Tilemap tilemap;
+    [SerializeField] private TooltipContent tooltipContent;
+    [SerializeField] private TileEventInit tileEventInit;
+    [SerializeField] private FollowMouse selection;
+    [SerializeField] private HealthBar healthBar;
 
-    [HideInInspector] public Vector3Int gridPos = new Vector3Int();
+    [HideInInspector] public Vector3Int gridCoords = new Vector3Int(); 
+
+    [Header("Health")]
+
+    public int maxHealth = 5;
     public int health = 5;
     
     private Tile newTile;
-    private TileEvent tileEvent;
+    private TileEvent tileEvent; 
+    private int currentHealth = -1;
      
 
     private void Update()
     {
+        // Move
         if (tooltipContent.leftClickAction == ClickAction.MoveTo && Input.GetMouseButtonDown(0))
         {
             transform.position = selection.transform.position + new Vector3(0f, 0.61f, -2f);
@@ -38,9 +46,15 @@ public class Player : MonoBehaviour
 
             Debug.Log(tileEvent);
             //tileEventInit.DoAction(tileEvent);
-            
-        }
 
-        gridPos = grid.WorldToCell(transform.position);
-    } 
+        }
+        // Set gridCoords
+        gridCoords = grid.WorldToCell(transform.position);
+        // update health 
+        if (health != currentHealth)
+        {
+            currentHealth = health;
+            healthBar.UpdateHealth();
+        }
+    }
 }

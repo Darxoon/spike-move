@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\FollowMouse.cs" />
+    <Compile Include="Assets\_Scripts\HealthBar.cs" />
     <Compile Include="Assets\_Scripts\NotComponents\ClickAction.cs" />
     <Compile Include="Assets\_Scripts\NotComponents\TileEvent.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
