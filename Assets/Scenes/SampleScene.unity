@@ -156,14 +156,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390856334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.224807, y: -0.062485136, z: 1972.6133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 591447768}
-  - {fileID: 1043321656}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1233893505}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -247,6 +246,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539016913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539016914}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539016914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539016913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.224807, y: 0.062485136, z: -1972.6133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591447767
 GameObject:
@@ -922,10 +951,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043321655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: -2}
+  m_LocalPosition: {x: 8.224807, y: 0.54751486, z: 1970.6133}
   m_LocalScale: {x: 2.7244, y: 3.1500876, z: 3.892}
   m_Children: []
-  m_Father: {fileID: 390856336}
+  m_Father: {fileID: 1233893505}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1043321657
@@ -1010,6 +1039,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1043321658}
+--- !u!1 &1233893504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233893505}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233893505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233893504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.224807, y: 0.062485136, z: -1972.6133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 390856336}
+  - {fileID: 1043321656}
+  - {fileID: 1519535476}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1414430604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1249,7 @@ RectTransform:
   m_Children:
   - {fileID: 1665971569}
   m_Father: {fileID: 1846705280}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1220,10 +1282,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519535475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6, y: -3.8, z: 0}
+  m_LocalPosition: {x: 10.824806, y: -3.8624852, z: 1972.6133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1233893505}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1519535477
@@ -1380,7 +1442,7 @@ RectTransform:
   m_Children:
   - {fileID: 1763094852}
   m_Father: {fileID: 1846705280}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1441,7 +1503,7 @@ MonoBehaviour:
   selection: {fileID: 1519535477}
   transition: 0.9
   grid: {fileID: 390856335}
-  offset: {x: -14, y: -30.6, z: -8}
+  offset: {x: -18, y: -30.6, z: -8}
   canvas: {fileID: 1846705279}
   scale: 5.795
 --- !u!114 &1763094856
@@ -1463,30 +1525,38 @@ MonoBehaviour:
   nameLabel: {fileID: 1802248963}
   descriptionLabel: {fileID: 1873744698}
   tilesEditor:
-  - tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
-    name: harmful tile
+  - title: Harmful Tile
+    tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
     description: hurts you 1 hp
     tileEvent: 1
-  - tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
-    name: heart
+  - title: Heart
+    tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     description: Fills your hp to maximum
     tileEvent: 3
-  - tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
-    name: used heart
+  - title: Used Heart
+    tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     description: was already used
     tileEvent: 2
-  - tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
-    name: normal plate
+  - title: Normal plate
+    tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     description: doesn't do anything
     tileEvent: 2
-  - tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
-    name: spawn
+  - title: Spawn
+    tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     description: Here your player spawns
     tileEvent: 2
-  - tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
-    name: Goal
+  - title: Goal
+    tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     description: the eNd of the lEvEl
     tileEvent: 4
+  - title: Goal
+    tile: {fileID: 11400000, guid: a974b83f32fec114bb4565dfe7a777c2, type: 2}
+    description: the eNd of the lEvEl
+    tileEvent: 5
+  - title: Goal
+    tile: {fileID: 11400000, guid: f6be2bed4e9e2004e8d896f96ac56ed4, type: 2}
+    description: the eNd of the lEvEl
+    tileEvent: 6
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
@@ -1665,7 +1735,7 @@ GameObject:
   - component: {fileID: 1846705278}
   - component: {fileID: 1846705277}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1742,8 +1812,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1758320600}
   - {fileID: 1486382146}
+  - {fileID: 1758320600}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
