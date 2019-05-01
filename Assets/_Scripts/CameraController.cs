@@ -7,9 +7,10 @@ public class CameraController : MonoBehaviour
     public Rect view;
 
     [SerializeField] private CameraBounds cameraBounds;
+    
 
-    [SerializeField] private Rect currentView;
-    [SerializeField] private Vector3 currentCamPos;
+    private Rect currentView;
+    private Vector3 currentCamPos; 
 
     private void Start()
     {
@@ -19,12 +20,14 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        // move the camera 
 
         transform.position += new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-
+        // update the 'view' field
         UpdateView(); 
 
+        // clamp the camera pos
         if(currentView != view)
         {
             // Horizontal
