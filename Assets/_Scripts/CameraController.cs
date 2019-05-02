@@ -6,11 +6,19 @@ public class CameraController : MonoBehaviour
 {
     public Rect view;
 
+    [SerializeField] private AnimationCurve curve;
+    [SerializeField] private Camera mainCam;
+
     [SerializeField] private CameraBounds cameraBounds;
-    
+    [SerializeField] private RectTransform camMovementPane;
 
     private Rect currentView;
-    private Vector3 currentCamPos; 
+    private Vector3 currentCamPos;
+
+    private Vector3 camVelocity;
+
+    private Vector3 camMovementPaneSize;
+    private Vector3 camMovementPanePos;
 
     private void Start()
     {
@@ -20,14 +28,30 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // move the camera 
+        // ---- move the camera ----
+        Vector3 mouseVector = (Input.mousePosition - camMovementPane.position) / camMovementPane.rect.width * 2;
+        Vector3 movementVector = new Vector3(curve.Evaluate(mouseVector.x), curve.Evaluate(mouseVector.y), 0f);
 
-        transform.position += new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        // check for negative values
+        bool xNegative = mouseVector.x < 0;
+        bool yNegative = mouseVector.y < 0;
+        // if there were negative values, make them negative
+        if (xNegative)
+            movementVector.x = -movementVector.x;
+        if (yNegative)
+            movementVector.y = -movementVector.y;
+        // add movement vector to velocity
+        camVelocity += movementVector;
+        // apply velocity
+        transform.position += camVelocity * Time.deltaTime;
+        // decrease velocity 
+        camVelocity *= 0.9f;
 
-        // update the 'view' field
+
+        // ---- update the 'view' field ----
         UpdateView(); 
 
-        // clamp the camera pos
+        // ---- clamp the camera pos ----
         if(currentView != view)
         {
             // Horizontal
@@ -62,8 +86,18 @@ public class CameraController : MonoBehaviour
 
     private void UpdateView()
     {
+        camMovementPanePos = mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.position.x, camMovementPane.position.y, 0f));
+        camMovementPaneSize = mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.rect.width + camMovementPanePos.x, camMovementPane.rect.height + camMovementPanePos.y, 0f));
+        view.width = (camMovementPaneSize.x - camMovementPanePos.x) * 2;
+        view.height = (camMovementPaneSize.y - camMovementPanePos.y) * 2;
         view.x = transform.position.x - view.width / 2;
-        view.y = transform.position.y - view.height / 2;
+        view.y = transform.position.y - view.height / 2; 
+
         Debug.DrawLine(new Vector3(view.x + view.width, view.y), new Vector3(view.x, view.y + view.height), Color.red); 
+    } 
+
+    private Vector3 DivideVector3(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 }

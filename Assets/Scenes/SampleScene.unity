@@ -209,6 +209,40 @@ MonoBehaviour:
     y: 0
     width: 48.45
     height: 40.4
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.20026016
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.5
+      value: 5
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  mainCam: {fileID: 519420031}
   cameraBounds: {fileID: 1359817501}
   camMovementPane: {fileID: 1051928560}
 --- !u!20 &519420031
@@ -1186,7 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camBounds:
     serializedVersion: 2
-    x: -24.23
+    x: -42.67
     y: -20.2
     width: 84.2
     height: 40.4
