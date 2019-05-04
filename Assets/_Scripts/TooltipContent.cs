@@ -7,11 +7,12 @@ public class TooltipContent : MonoBehaviour
 {
     // classes
     [System.Serializable]
-    public struct TooltipTile
+    public struct TileDescription
     {
         public string name;
         public string description;
         public TileEvent tileEvent;
+        public CollisionType collisionType;
     }
     [System.Serializable] 
     public struct EditorTile
@@ -20,7 +21,13 @@ public class TooltipContent : MonoBehaviour
         public Tile tile;
         public string description;
         public TileEvent tileEvent;
+        public CollisionType collisionType;
     }
+
+    [Header("Hexagon Neighbors")]
+
+    [SerializeField] private Vector2[] evenTileNeighbors;
+    [SerializeField] private Vector2[] oddTileNeighbors;
 
     [Header("References")] 
 
@@ -37,8 +44,8 @@ public class TooltipContent : MonoBehaviour
     [Header("Tile Dictionary")] 
 
     [SerializeField] private EditorTile[] tilesEditor;
-    [SerializeField] private TooltipTile missingTile;
-    private Dictionary<Tile, TooltipTile> tiles = new Dictionary<Tile, TooltipTile>();
+    [SerializeField] private TileDescription missingTile;
+    private Dictionary<Tile, TileDescription> tiles = new Dictionary<Tile, TileDescription>();
 
     // tile
     private Tile currentTile;
@@ -47,21 +54,22 @@ public class TooltipContent : MonoBehaviour
     public Vector3Int currentTilePos; 
 
     // other 
-    private TooltipTile tooltipTile;
+    private TileDescription tooltipTile;
     private Vector3Int relativeGridCoords;
 
     // click actions 
     public ClickAction leftClickAction;
     public ClickAction rightClickAction;
 
-    public Dictionary<Tile, TooltipTile> Tiles => tiles;
+    public Dictionary<Tile, TileDescription> Tiles => tiles;
+    public TileDescription MissingTile => missingTile;
 
     private void Awake()
     {
         /* convert tilesEditor Array to tiles Dict */
         foreach (EditorTile item in tilesEditor)
         {
-            tiles.Add(item.tile, new TooltipTile { name = item.name, description = item.description, tileEvent = item.tileEvent });
+            tiles.Add(item.tile, new TileDescription { name = item.name, description = item.description, tileEvent = item.tileEvent, collisionType = item.collisionType });
         }
     }
 

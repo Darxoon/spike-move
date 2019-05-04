@@ -5,8 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Vector3 offset;
+
     [Header("Debugging")]
 
+    [SerializeField] private bool collideWithWalls = true;
     [SerializeField] private bool doTileEvents = true;
 
     [Header("References")]
@@ -26,7 +29,7 @@ public class Player : MonoBehaviour
     public int health = 5;
     
     private Tile newTile;
-    private TileEvent tileEvent; 
+    private TooltipContent.TileDescription tileProperties; 
     private int currentHealth = -1;
      
 
@@ -35,22 +38,30 @@ public class Player : MonoBehaviour
         // Move
         if (tooltipContent.leftClickAction == ClickAction.MoveTo && Input.GetMouseButtonDown(0))
         {
-            transform.position = selection.transform.position + new Vector3(0f, 0.61f, -2f);
-            // correct
+            // get the tile
             newTile = tilemap.GetTile(selection.gridCoords) as Tile;
-            // not working
+            // check for tile properties
             try
             {
-                tileEvent = tooltipContent.Tiles[newTile].tileEvent; 
+                tileProperties = tooltipContent.Tiles[newTile]; 
             }
             catch (System.Exception)
             {
-                tileEvent = TileEvent.Missing;
+                tileProperties = tooltipContent.MissingTile;
             }
+            // if collision type is set to pass
+            if (tileProperties.collisionType == CollisionType.Pass || !collideWithWalls)
+            {
+                // move
+                transform.position = selection.transform.position + offset;
 
-            Debug.Log(tileEvent);
-            if (doTileEvents)
-                tileEventInit.DoAction(tileEvent);
+                Debug.Log(tileProperties);
+                if (doTileEvents)
+                    tileEventInit.DoAction(tileProperties.tileEvent);
+            }
+            // if collision type is set to wall
+            else
+                Debug.Log("gegen ne wand geknallt");
 
         }
         // Set gridCoords

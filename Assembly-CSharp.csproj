@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Scripts\HealthBar.cs" />
     <Compile Include="Assets\_Scripts\LevelManager.cs" />
     <Compile Include="Assets\_Scripts\NotComponents\ClickAction.cs" />
+    <Compile Include="Assets\_Scripts\NotComponents\CollisionType.cs" />
     <Compile Include="Assets\_Scripts\NotComponents\TileEvent.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
     <Compile Include="Assets\_Scripts\TileEventInit.cs" />

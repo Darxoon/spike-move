@@ -577,6 +577,33 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 2, y: 0, z: 0}
+    second:
+      m_TileIndex: 7
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 3, y: 0, z: 0}
+    second:
+      m_TileIndex: 7
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: -3, y: 1, z: 0}
+    second:
+      m_TileIndex: 7
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -2, y: 1, z: 0}
     second:
       m_TileIndex: 1
@@ -599,6 +626,24 @@ Tilemap:
     second:
       m_TileIndex: 2
       m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 2, y: 1, z: 0}
+    second:
+      m_TileIndex: 7
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 3, y: 1, z: 0}
+    second:
+      m_TileIndex: 7
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -638,6 +683,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a974b83f32fec114bb4565dfe7a777c2, type: 2}
+  - m_RefCount: 5
+    m_Data: {fileID: 11400000, guid: 2a46c88ada7aeb04d8ce258fffe88918, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 5b1523596e2997247b971c7f4d04bee1, type: 3}
@@ -651,8 +698,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 1c7fb8499b82e5045b1166d3f25f7759, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 2a3693fc1f8f6b043994f31277503ca4, type: 3}
+  - m_RefCount: 5
+    m_Data: {fileID: 21300000, guid: bbaf8fd6a2a1c884896ed6f7b0d4f052, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 20
+  - m_RefCount: 25
     m_Data:
       e00: 1
       e01: 0
@@ -671,7 +720,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 20
+  - m_RefCount: 25
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1098,6 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edcfecd3d0d1aa4da95a97022e9a447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0.61, z: -2}
   doTileEvents: 1
   grid: {fileID: 390856335}
   tilemap: {fileID: 591447770}
@@ -1694,38 +1744,52 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
     description: hurts you 1 hp
     tileEvent: 1
+    collisionType: 0
   - name: Heart
     tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     description: Fills your hp to maximum
     tileEvent: 3
+    collisionType: 0
   - name: Used heart
     tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     description: was already used
     tileEvent: 2
+    collisionType: 0
   - name: Normal plate
     tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     description: doesn't do anything
     tileEvent: 2
+    collisionType: 0
   - name: Spawn
     tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     description: Here your player spawns
     tileEvent: 2
+    collisionType: 0
   - name: Goal
     tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     description: the eNd of the lEvEl
     tileEvent: 4
+    collisionType: 0
   - name: Goal
     tile: {fileID: 11400000, guid: a974b83f32fec114bb4565dfe7a777c2, type: 2}
     description: the eNd of the lEvEl
     tileEvent: 5
+    collisionType: 0
   - name: Goal
     tile: {fileID: 11400000, guid: f6be2bed4e9e2004e8d896f96ac56ed4, type: 2}
     description: the eNd of the lEvEl
     tileEvent: 6
+    collisionType: 0
+  - name: Wall
+    tile: {fileID: 11400000, guid: 2a46c88ada7aeb04d8ce258fffe88918, type: 2}
+    description: You can't cross it
+    tileEvent: 2
+    collisionType: 1
   missingTile:
     name: missing tile
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
     tileEvent: 0
+    collisionType: 0
   currentTilePos: {x: 0, y: 0, z: 0}
   leftClickAction: 0
   rightClickAction: 0
