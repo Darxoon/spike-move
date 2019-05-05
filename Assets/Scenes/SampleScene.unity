@@ -1148,6 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.61, z: -2}
+  collideWithWalls: 1
   doTileEvents: 1
   grid: {fileID: 390856335}
   tilemap: {fileID: 591447770}
@@ -1733,6 +1734,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f6dc2460c35af4ba64d6755c4d89c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  evenTileNeighbors:
+  - {x: 0, y: -1, z: 0}
+  - {x: 1, y: -1, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 1, y: 1, z: 0}
+  oddTileNeighbors:
+  - {x: -1, y: -1, z: 0}
+  - {x: 0, y: -1, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
   tilemap: {fileID: 591447770}
   selection: {fileID: 1519535477}
   moveActionIndicator: {fileID: 1918851990}

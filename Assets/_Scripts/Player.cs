@@ -55,7 +55,11 @@ public class Player : MonoBehaviour
                 // move
                 transform.position = selection.transform.position + offset;
 
-                Debug.Log(tileProperties);
+                // update tooltip click action 
+                tooltipContent.currentTilePos = new Vector3Int(0, 0, 1);
+
+                // do tile event 
+
                 if (doTileEvents)
                     tileEventInit.DoAction(tileProperties.tileEvent);
             }

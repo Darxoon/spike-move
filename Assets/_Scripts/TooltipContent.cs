@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using TMPro;
@@ -26,8 +27,8 @@ public class TooltipContent : MonoBehaviour
 
     [Header("Hexagon Neighbors")]
 
-    [SerializeField] private Vector2[] evenTileNeighbors;
-    [SerializeField] private Vector2[] oddTileNeighbors;
+    [SerializeField] private Vector3Int[] evenTileNeighbors;
+    [SerializeField] private Vector3Int[] oddTileNeighbors;
 
     [Header("References")] 
 
@@ -45,7 +46,7 @@ public class TooltipContent : MonoBehaviour
 
     [SerializeField] private EditorTile[] tilesEditor;
     [SerializeField] private TileDescription missingTile;
-    private Dictionary<Tile, TileDescription> tiles = new Dictionary<Tile, TileDescription>();
+    public Dictionary<Tile, TileDescription> Tiles { get; } = new Dictionary<Tile, TileDescription>();
 
     // tile
     private Tile currentTile;
@@ -61,7 +62,6 @@ public class TooltipContent : MonoBehaviour
     public ClickAction leftClickAction;
     public ClickAction rightClickAction;
 
-    public Dictionary<Tile, TileDescription> Tiles => tiles;
     public TileDescription MissingTile => missingTile;
 
     private void Awake()
@@ -69,7 +69,7 @@ public class TooltipContent : MonoBehaviour
         /* convert tilesEditor Array to tiles Dict */
         foreach (EditorTile item in tilesEditor)
         {
-            tiles.Add(item.tile, new TileDescription { name = item.name, description = item.description, tileEvent = item.tileEvent, collisionType = item.collisionType });
+            Tiles.Add(item.tile, new TileDescription { name = item.name, description = item.description, tileEvent = item.tileEvent, collisionType = item.collisionType });
         }
     }
 
@@ -82,10 +82,9 @@ public class TooltipContent : MonoBehaviour
             currentTile = newTile;
             try
             {
-                tooltipTile = tiles[newTile];
+                tooltipTile = Tiles[newTile];
             }
-            catch (System.Exception)
-            {
+            catch (Exception) { 
                 tooltipTile = missingTile;
             }
             nameLabel.text = tooltipTile.name;
@@ -101,8 +100,14 @@ public class TooltipContent : MonoBehaviour
 
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
             relativeGridCoords = selection.gridCoords - player.gridCoords;
-            if ((relativeGridCoords.x < 1 && relativeGridCoords.x >= -1 && relativeGridCoords.y <= 1 && relativeGridCoords.y >= -1 && relativeGridCoords != new Vector3Int(0, 0, 0)) 
-                || (relativeGridCoords.x == 1 && relativeGridCoords.y == 0)) 
+            Debug.Log(player.gridCoords.x % 2);
+            Debug.Log(selection.gridCoords);
+            Debug.Log(player.gridCoords);
+            Debug.Log(relativeGridCoords);
+            if ((player.gridCoords.x % 2 == 0 && (relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
+                    || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(0, 1, 0) || relativeGridCoords == new Vector3Int(-1, -1, 0)))
+                || (player.gridCoords.x % 2 == 1 && (relativeGridCoords == new Vector3Int(-1, -1, 0) || relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
+                    || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(0, 1, 0))))
                 leftClickAction = ClickAction.MoveTo;
             else
                 leftClickAction = ClickAction.None;
