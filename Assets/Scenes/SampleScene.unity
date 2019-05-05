@@ -120,6 +120,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &169438548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169438549}
+  m_Layer: 5
+  m_Name: Tooltip Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &169438549
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169438548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 699490899}
+  - {fileID: 1918851991}
+  m_Father: {fileID: 1763094852}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &390856334
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,14 +807,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699490898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802248962}
   - {fileID: 1479300811}
   - {fileID: 1873744697}
-  m_Father: {fileID: 1763094852}
+  m_Father: {fileID: 169438549}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1172,6 +1209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1043321658}
+  tilemap: {fileID: 591447770}
+  grid: {fileID: 390856335}
+  selection: {fileID: 1519535477}
+  tileHeartUsed: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
 --- !u!1 &1051928559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,8 +1736,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 699490899}
-  - {fileID: 1918851991}
+  - {fileID: 169438549}
   m_Father: {fileID: 1758320600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1750,8 +1790,9 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 0}
   tilemap: {fileID: 591447770}
   selection: {fileID: 1519535477}
-  moveActionIndicator: {fileID: 1918851990}
   player: {fileID: 1043321658}
+  tooltipVisuals: {fileID: 169438548}
+  moveActionIndicator: {fileID: 1918851990}
   nameLabel: {fileID: 1802248963}
   descriptionLabel: {fileID: 1873744698}
   tilesEditor:
@@ -1801,7 +1842,7 @@ MonoBehaviour:
     tileEvent: 2
     collisionType: 1
   missingTile:
-    name: missing tile
+    name: '@none'
     description: "asdf jkl\xF6 qwertzuiop i'm having fun with my keyboard"
     tileEvent: 0
     collisionType: 0
@@ -2250,14 +2291,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918851990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1414430605}
   - {fileID: 838136305}
   - {fileID: 700121583}
-  m_Father: {fileID: 1763094852}
+  m_Father: {fileID: 169438549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

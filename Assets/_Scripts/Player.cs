@@ -62,6 +62,9 @@ public class Player : MonoBehaviour
                 // update tooltip click action 
                 tooltipContent.currentTilePos = new Vector3Int(0, 0, 1);
 
+                // Set gridCoords
+                gridCoords = grid.WorldToCell(transform.position);
+
                 // do tile event 
 
                 if (doTileEvents)
@@ -72,8 +75,6 @@ public class Player : MonoBehaviour
                 Debug.Log("gegen ne wand geknallt");
 
         }
-        // Set gridCoords
-        gridCoords = grid.WorldToCell(transform.position);
     } 
 
     private void HealthUpdate(int newHealth)

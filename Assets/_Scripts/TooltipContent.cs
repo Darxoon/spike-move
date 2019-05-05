@@ -19,8 +19,8 @@ public class TooltipContent : MonoBehaviour
     public struct EditorTile
     {
         public string name;
-        public Tile tile;
         public string description;
+        public Tile tile;
         public TileEvent tileEvent;
         public CollisionType collisionType;
     }
@@ -34,11 +34,12 @@ public class TooltipContent : MonoBehaviour
 
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private FollowMouse selection;
-    [SerializeField] private GameObject moveActionIndicator;
     [SerializeField] private Player player;
 
-    [Header("Texts")] 
+    [Header("Tooltip Parts")] 
 
+    [SerializeField] private GameObject tooltipVisuals;
+    [SerializeField] private GameObject moveActionIndicator;
     [SerializeField] private TMP_Text nameLabel;
     [SerializeField] private TMP_Text descriptionLabel;
 
@@ -88,8 +89,14 @@ public class TooltipContent : MonoBehaviour
             catch (Exception) { 
                 tooltipTile = missingTile;
             }
-            nameLabel.text = tooltipTile.name;
-            descriptionLabel.text = tooltipTile.description;
+            if (tooltipTile.name == "@none")
+                tooltipVisuals.SetActive(false);
+            else
+            {
+                tooltipVisuals.SetActive(true);
+                nameLabel.text = tooltipTile.name;
+                descriptionLabel.text = tooltipTile.description;
+            }
         }
 
         // if it focuses a new tile
@@ -101,10 +108,10 @@ public class TooltipContent : MonoBehaviour
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
             relativeGridCoords = selection.gridCoords - player.gridCoords;
             playerYCoordsEven = (player.gridCoords.y % 2) == 0;
-            Debug.Log(playerYCoordsEven);
-            Debug.Log(selection.gridCoords);
-            Debug.Log(player.gridCoords);
-            Debug.Log(relativeGridCoords);
+            //Debug.Log(playerYCoordsEven);
+            //Debug.Log(selection.gridCoords);
+            //Debug.Log(player.gridCoords);
+            //Debug.Log(relativeGridCoords);
             if ((playerYCoordsEven && (relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
                     || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(0, 1, 0) || relativeGridCoords == new Vector3Int(-1, -1, 0)))
                 || (!playerYCoordsEven && (relativeGridCoords == new Vector3Int(1, -1, 0) || relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 

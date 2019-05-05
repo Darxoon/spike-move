@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TileEventInit : MonoBehaviour
 {
+    [Header("References")] 
 
     [SerializeField] private Player player;
+    [SerializeField] private Tilemap tilemap; 
+    [SerializeField] private Grid grid; 
+    [SerializeField] private FollowMouse selection;
 
+    [Header("Tiles")]
+
+    [SerializeField] private Tile tileHeartUsed;
 
     public void DoAction(TileEvent tileEvent)
     {
@@ -30,9 +38,10 @@ public class TileEventInit : MonoBehaviour
                 LevelManager.instance.LoadExit(2);
                 break;
 
-            // Tile Goal
+            // Tile Heart
             case TileEvent.TileHeart:
-                player.Health++;
+                player.Health = player.MaxHealth;
+                tilemap.SetTile(player.gridCoords, tileHeartUsed);
                 break;
             
             // Tiles that do nothing, so: TileSafe (including TileHeartUsed and TileStart) and Missing
