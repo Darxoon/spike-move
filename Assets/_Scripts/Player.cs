@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
@@ -25,9 +23,15 @@ public class Player : MonoBehaviour
 
     [Header("Health")]
 
-    public int maxHealth = 5;
-    public int health = 5;
-    
+    [SerializeField] private int maxHealth = 5;
+    [SerializeField] private int health = 5;
+
+    // health properties 
+
+    public int MaxHealth => maxHealth;
+    public int Health { get => health; set => HealthUpdate(value); }
+
+
     private Tile newTile;
     private TooltipContent.TileDescription tileProperties; 
     private int currentHealth = -1;
@@ -70,14 +74,14 @@ public class Player : MonoBehaviour
         }
         // Set gridCoords
         gridCoords = grid.WorldToCell(transform.position);
-        // update health 
-        if (health != currentHealth)
-        {
-            currentHealth = health;
-            healthBar.UpdateHealth();
+    } 
 
-            if (health == 0)
-                LevelManager.instance.RestartLevel();
-        }
+    private void HealthUpdate(int newHealth)
+    {
+        health = newHealth;
+        healthBar.UpdateHealth();
+
+        if (health == 0)
+            LevelManager.instance.RestartLevel();
     }
 }

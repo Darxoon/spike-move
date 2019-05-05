@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +39,7 @@ public class HealthBar : MonoBehaviour
         Vector3 pos = initialPos;
         healthPoints = new List<Image>();
         healthPointsActive = new List<bool>();
-        for (int i = 0; i < player.maxHealth; i++)
+        for (int i = 0; i < player.MaxHealth; i++)
         {
             healthPoints.Add(Instantiate(healthPoint, pos, Quaternion.identity, transform).GetComponent<Image>());
             healthPointsActive.Add(true);
@@ -52,9 +51,9 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealth() {
         // count from every dead healthpoint 
-        for (int i = 0; i < player.maxHealth; i++)
+        for (int i = 0; i < player.MaxHealth; i++)
         {
-            activated = i < player.health;
+            activated = i < player.Health;
             if (healthPointsActive[i] != activated)
             {
                 if (i == 0 && activated)

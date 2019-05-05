@@ -16,7 +16,7 @@ public class TileEventInit : MonoBehaviour
             // Tile Damage 1
             case TileEvent.TileDamage1:
                 Debug.Log("brudah brauch pflaster");
-                player.health--;
+                player.Health--;
                 break;
 
             // Tile Goal
@@ -32,7 +32,7 @@ public class TileEventInit : MonoBehaviour
 
             // Tile Goal
             case TileEvent.TileHeart:
-                player.health++;
+                player.Health++;
                 break;
             
             // Tiles that do nothing, so: TileSafe (including TileHeartUsed and TileStart) and Missing

@@ -57,6 +57,7 @@ public class TooltipContent : MonoBehaviour
     // other 
     private TileDescription tooltipTile;
     private Vector3Int relativeGridCoords;
+    private bool playerYCoordsEven;
 
     // click actions 
     public ClickAction leftClickAction;
@@ -95,19 +96,19 @@ public class TooltipContent : MonoBehaviour
         if (selection.gridCoords != currentTilePos)
         {
             currentTilePos = selection.gridCoords;
-
             //Debug.Log(currentTilePos);
 
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
             relativeGridCoords = selection.gridCoords - player.gridCoords;
-            Debug.Log(player.gridCoords.x % 2);
+            playerYCoordsEven = (player.gridCoords.y % 2) == 0;
+            Debug.Log(playerYCoordsEven);
             Debug.Log(selection.gridCoords);
             Debug.Log(player.gridCoords);
             Debug.Log(relativeGridCoords);
-            if ((player.gridCoords.x % 2 == 0 && (relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
+            if ((playerYCoordsEven && (relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
                     || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(0, 1, 0) || relativeGridCoords == new Vector3Int(-1, -1, 0)))
-                || (player.gridCoords.x % 2 == 1 && (relativeGridCoords == new Vector3Int(-1, -1, 0) || relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
-                    || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(-1, 1, 0) || relativeGridCoords == new Vector3Int(0, 1, 0))))
+                || (!playerYCoordsEven && (relativeGridCoords == new Vector3Int(1, -1, 0) || relativeGridCoords == new Vector3Int(0, -1, 0) || relativeGridCoords == new Vector3Int(-1, 0, 0) 
+                    || relativeGridCoords == new Vector3Int(1, 0, 0) || relativeGridCoords == new Vector3Int(1, 1, 0) || relativeGridCoords == new Vector3Int(0, 1, 0))))
                 leftClickAction = ClickAction.MoveTo;
             else
                 leftClickAction = ClickAction.None;
