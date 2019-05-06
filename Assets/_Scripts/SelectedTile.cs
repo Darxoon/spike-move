@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FollowMouse : MonoBehaviour
+public class SelectedTile : MonoBehaviour
 {
 
     [SerializeField] private bool alignToGrid = true;
