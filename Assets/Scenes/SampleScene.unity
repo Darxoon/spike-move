@@ -279,7 +279,6 @@ MonoBehaviour:
     m_PreInfinity: 0
     m_PostInfinity: 0
     m_RotationOrder: 4
-  mainCam: {fileID: 519420031}
   cameraBounds: {fileID: 1359817501}
   camMovementPane: {fileID: 1051928560}
 --- !u!20 &519420031
@@ -1185,18 +1184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edcfecd3d0d1aa4da95a97022e9a447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.61, z: -2}
   collideWithWalls: 1
   doTileEvents: 1
-  grid: {fileID: 390856335}
-  tilemap: {fileID: 591447770}
-  tooltipContent: {fileID: 1763094856}
-  tileEventInit: {fileID: 1043321659}
-  selection: {fileID: 1519535477}
-  healthBar: {fileID: 1665971570}
-  gridCoords: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0.61, z: -2}
   maxHealth: 5
   health: 5
+  gridCoords: {x: 0, y: 0, z: 0}
 --- !u!114 &1043321659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,10 +1218,12 @@ MonoBehaviour:
   player: {fileID: 1043321658}
   tileEventInit: {fileID: 1043321659}
   selection: {fileID: 1519535477}
+  mainCam: {fileID: 519420031}
   tooltipContent: {fileID: 1763094856}
   tooltipFollow: {fileID: 1763094853}
   grid: {fileID: 390856335}
   tilemap: {fileID: 591447770}
+  healthBar: {fileID: 1665971570}
 --- !u!1 &1051928559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,8 +1572,6 @@ MonoBehaviour:
   alignToGrid: 1
   offset: {x: 0, y: 0, z: -1}
   interpolation: 0.8
-  mainCam: {fileID: 519420031}
-  grid: {fileID: 390856335}
   gridCoords: {x: 0, y: 0, z: 0}
 --- !u!212 &1519535478
 SpriteRenderer:
@@ -1676,7 +1669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec90128317a14b40a2990e1a4d16add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1043321658}
   healthPoint: {fileID: 1551725537386455457, guid: 12c1cbbdf1ab43849b58b0a6a7b15850,
     type: 3}
   initialPos: {x: 60, y: 450, z: 0}
@@ -1773,11 +1765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19974f1ddb234e140bb068f7e04563ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selection: {fileID: 1519535477}
   transition: 0.9
-  grid: {fileID: 390856335}
   offset: {x: -0.25, y: -0.62, z: -8}
-  mainCam: {fileID: 519420031}
 --- !u!114 &1763094856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,23 +1779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f6dc2460c35af4ba64d6755c4d89c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evenTileNeighbors:
-  - {x: 0, y: -1, z: 0}
-  - {x: 1, y: -1, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 0, y: 1, z: 0}
-  - {x: 1, y: 1, z: 0}
-  oddTileNeighbors:
-  - {x: -1, y: -1, z: 0}
-  - {x: 0, y: -1, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: -1, y: 1, z: 0}
-  - {x: 0, y: 1, z: 0}
-  tilemap: {fileID: 591447770}
-  selection: {fileID: 1519535477}
-  player: {fileID: 1043321658}
   tooltipVisuals: {fileID: 169438548}
   moveActionIndicator: {fileID: 1918851990}
   nameLabel: {fileID: 1802248963}

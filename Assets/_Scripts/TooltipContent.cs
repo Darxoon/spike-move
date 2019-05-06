@@ -42,12 +42,7 @@ public class TooltipContent : MonoBehaviour
 
 
     public Dictionary<Tile, TileDescription> Tiles { get; } = new Dictionary<Tile, TileDescription>();
-
-    // References
-
-    private Tilemap tilemap;
-    private FollowMouse selection;
-    private Player player;
+    
 
     // tile
     private Tile currentTile;
@@ -75,17 +70,10 @@ public class TooltipContent : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        tilemap = ReferenceLib.instance.tilemap;
-        selection = ReferenceLib.instance.selection;
-        player = ReferenceLib.instance.player;
-    }
-
     private void Update()
     {
         /* if it focuses a new tile type, update the tooltip info */
-        newTile = tilemap.GetTile(selection.gridCoords) as Tile; 
+        newTile = ReferenceLib.instance.tilemap.GetTile(ReferenceLib.instance.selection.gridCoords) as Tile; 
         if(newTile != currentTile)
         {
             currentTile = newTile;
@@ -107,14 +95,14 @@ public class TooltipContent : MonoBehaviour
         }
 
         // if it focuses a new tile
-        if (selection.gridCoords != currentTilePos)
+        if (ReferenceLib.instance.selection.gridCoords != currentTilePos)
         {
-            currentTilePos = selection.gridCoords;
+            currentTilePos = ReferenceLib.instance.selection.gridCoords;
             //Debug.Log(currentTilePos);
 
             /* if all values of the selection vector are between -1 and 1, set the leftclickaction to move */
-            relativeGridCoords = selection.gridCoords - player.gridCoords;
-            playerYCoordsEven = (player.gridCoords.y % 2) == 0;
+            relativeGridCoords = ReferenceLib.instance.selection.gridCoords - ReferenceLib.instance.player.gridCoords;
+            playerYCoordsEven = (ReferenceLib.instance.player.gridCoords.y % 2) == 0;
             //Debug.Log(playerYCoordsEven);
             //Debug.Log(selection.gridCoords);
             //Debug.Log(player.gridCoords);

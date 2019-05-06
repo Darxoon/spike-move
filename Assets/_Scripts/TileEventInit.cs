@@ -6,21 +6,7 @@ public class TileEventInit : MonoBehaviour
     [Header("Tiles")]
 
     [SerializeField] private Tile tileHeartUsed;
-
-    // References
-
-    private Player player;
-    private Tilemap tilemap; 
-    private Grid grid; 
-    private FollowMouse selection;
-
-    private void Start()
-    {
-        player = ReferenceLib.instance.player;
-        tilemap = ReferenceLib.instance.tilemap;
-        grid = ReferenceLib.instance.grid;
-        selection = ReferenceLib.instance.selection;
-    }
+    
 
     public void DoAction(TileEvent tileEvent)
     {
@@ -30,7 +16,7 @@ public class TileEventInit : MonoBehaviour
             // Tile Damage 1
             case TileEvent.TileDamage1:
                 Debug.Log("brudah brauch pflaster");
-                player.Health--;
+                ReferenceLib.instance.player.Health--;
                 break;
 
             // Tile Goal
@@ -46,8 +32,8 @@ public class TileEventInit : MonoBehaviour
 
             // Tile Heart
             case TileEvent.TileHeart:
-                player.Health = player.MaxHealth;
-                tilemap.SetTile(player.gridCoords, tileHeartUsed);
+                ReferenceLib.instance.player.Health = ReferenceLib.instance.player.MaxHealth;
+                ReferenceLib.instance.tilemap.SetTile(ReferenceLib.instance.player.gridCoords, tileHeartUsed);
                 break;
             
             // Tiles that do nothing, so: TileSafe (including TileHeartUsed and TileStart) and Missing

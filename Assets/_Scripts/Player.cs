@@ -32,57 +32,39 @@ public class Player : MonoBehaviour
     private TooltipContent.TileDescription tileProperties; 
     private int currentHealth = -1;
     
-    // References
-
-    private Grid grid;
-    private Tilemap tilemap;
-    private TooltipContent tooltipContent;
-    private TileEventInit tileEventInit;
-    private FollowMouse selection;
-    private HealthBar healthBar;
-
-    private void Start()
-    {
-        grid = ReferenceLib.instance.grid;
-        tilemap = ReferenceLib.instance.tilemap;
-        tooltipContent = ReferenceLib.instance.tooltipContent;
-        tileEventInit = ReferenceLib.instance.tileEventInit;
-        selection = ReferenceLib.instance.selection;
-        healthBar = ReferenceLib.instance.healthBar;
-    }
 
     private void Update()
     {
         // Move
-        if (tooltipContent.leftClickAction == ClickAction.MoveTo && Input.GetMouseButtonDown(0))
+        if (ReferenceLib.instance.tooltipContent.leftClickAction == ClickAction.MoveTo && Input.GetMouseButtonDown(0))
         {
             // get the tile
-            newTile = tilemap.GetTile(selection.gridCoords) as Tile;
+            newTile = ReferenceLib.instance.tilemap.GetTile(ReferenceLib.instance.selection.gridCoords) as Tile;
             // check for tile properties
             try
             {
-                tileProperties = tooltipContent.Tiles[newTile]; 
+                tileProperties = ReferenceLib.instance.tooltipContent.Tiles[newTile]; 
             }
             catch (System.Exception)
             {
-                tileProperties = tooltipContent.MissingTile;
+                tileProperties = ReferenceLib.instance.tooltipContent.MissingTile;
             }
             // if collision type is set to pass
             if (tileProperties.collisionType == CollisionType.Pass || !collideWithWalls)
             {
                 // move
-                transform.position = selection.transform.position + offset;
+                transform.position = ReferenceLib.instance.selection.transform.position + offset;
 
                 // update tooltip click action 
-                tooltipContent.currentTilePos = new Vector3Int(0, 0, 1);
+                ReferenceLib.instance.tooltipContent.currentTilePos = new Vector3Int(0, 0, 1);
 
                 // Set gridCoords
-                gridCoords = grid.WorldToCell(transform.position);
+                gridCoords = ReferenceLib.instance.grid.WorldToCell(transform.position);
 
                 // do tile event 
 
                 if (doTileEvents)
-                    tileEventInit.DoAction(tileProperties.tileEvent);
+                    ReferenceLib.instance.tileEventInit.DoAction(tileProperties.tileEvent);
             }
             // if collision type is set to wall
             else
@@ -94,7 +76,7 @@ public class Player : MonoBehaviour
     private void HealthUpdate(int newHealth)
     {
         health = newHealth;
-        healthBar.UpdateHealth();
+        ReferenceLib.instance.healthBar.UpdateHealth();
 
         if (health == 0)
             LevelManager.instance.RestartLevel();

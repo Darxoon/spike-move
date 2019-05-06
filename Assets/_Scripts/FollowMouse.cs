@@ -11,25 +11,17 @@ public class FollowMouse : MonoBehaviour
 
     [HideInInspector] public Vector3Int gridCoords;
 
-
-    private Camera mainCam;
-    private Grid grid;
-
-    private void Start()
-    {
-        mainCam = ReferenceLib.instance.mainCam;
-        grid = ReferenceLib.instance.grid;
-    }
+    
 
     private void Update()
     {
         if (alignToGrid)
         {
-            gridCoords = grid.WorldToCell(mainCam.ScreenToWorldPoint(Input.mousePosition));
-            transform.position = Vector3.Lerp(transform.position, grid.CellToWorld(gridCoords) + offset, interpolation);
+            gridCoords = ReferenceLib.instance.grid.WorldToCell(ReferenceLib.instance.mainCam.ScreenToWorldPoint(Input.mousePosition));
+            transform.position = Vector3.Lerp(transform.position, ReferenceLib.instance.grid.CellToWorld(gridCoords) + offset, interpolation);
         }
         else
-            transform.position = Vector3.Lerp(transform.position, mainCam.ScreenToWorldPoint(Input.mousePosition) + offset, interpolation);
+            transform.position = Vector3.Lerp(transform.position, ReferenceLib.instance.mainCam.ScreenToWorldPoint(Input.mousePosition) + offset, interpolation);
         
     }
 }

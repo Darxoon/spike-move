@@ -16,16 +16,12 @@ public class CameraController : MonoBehaviour
 
     private Vector3 camMovementPaneSize;
     private Vector3 camMovementPanePos;
-
-    // References
-
-    private Camera mainCam;
+    
 
     private void Start()
     {
         currentView.width = view.width;
         currentView.height = view.height;
-        mainCam = ReferenceLib.instance.mainCam;
     }
 
     private void Update()
@@ -88,8 +84,8 @@ public class CameraController : MonoBehaviour
 
     private void UpdateView()
     {
-        camMovementPanePos = mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.position.x, camMovementPane.position.y, 0f));
-        camMovementPaneSize = mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.rect.width + camMovementPanePos.x, camMovementPane.rect.height + camMovementPanePos.y, 0f));
+        camMovementPanePos = ReferenceLib.instance.mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.position.x, camMovementPane.position.y, 0f));
+        camMovementPaneSize = ReferenceLib.instance.mainCam.ScreenToWorldPoint(new Vector3(camMovementPane.rect.width + camMovementPanePos.x, camMovementPane.rect.height + camMovementPanePos.y, 0f));
         view.width = (camMovementPaneSize.x - camMovementPanePos.x) * 2;
         view.height = (camMovementPaneSize.y - camMovementPanePos.y) * 2;
         view.x = transform.position.x - view.width / 2;
