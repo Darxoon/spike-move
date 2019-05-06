@@ -2,20 +2,24 @@
 
 public class FollowMouse : MonoBehaviour
 {
-    [Header("Standard")]
 
     [SerializeField] private bool alignToGrid = true;
-
     [SerializeField] private Vector3 offset;
-
     [SerializeField] private float interpolation = 1f;
 
-    [Header("Align to grid")]
 
-    [SerializeField] private Camera mainCam = null;
-    [SerializeField] private Grid grid = null;
-    
+
     [HideInInspector] public Vector3Int gridCoords;
+
+
+    private Camera mainCam;
+    private Grid grid;
+
+    private void Start()
+    {
+        mainCam = ReferenceLib.instance.mainCam;
+        grid = ReferenceLib.instance.grid;
+    }
 
     private void Update()
     {

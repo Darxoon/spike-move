@@ -25,16 +25,6 @@ public class TooltipContent : MonoBehaviour
         public CollisionType collisionType;
     }
 
-    [Header("Hexagon Neighbors")]
-
-    [SerializeField] private Vector3Int[] evenTileNeighbors;
-    [SerializeField] private Vector3Int[] oddTileNeighbors;
-
-    [Header("References")] 
-
-    [SerializeField] private Tilemap tilemap;
-    [SerializeField] private FollowMouse selection;
-    [SerializeField] private Player player;
 
     [Header("Tooltip Parts")] 
 
@@ -47,7 +37,17 @@ public class TooltipContent : MonoBehaviour
 
     [SerializeField] private EditorTile[] tilesEditor;
     [SerializeField] private TileDescription missingTile;
+
+
+
+
     public Dictionary<Tile, TileDescription> Tiles { get; } = new Dictionary<Tile, TileDescription>();
+
+    // References
+
+    private Tilemap tilemap;
+    private FollowMouse selection;
+    private Player player;
 
     // tile
     private Tile currentTile;
@@ -73,6 +73,13 @@ public class TooltipContent : MonoBehaviour
         {
             Tiles.Add(item.tile, new TileDescription { name = item.name, description = item.description, tileEvent = item.tileEvent, collisionType = item.collisionType });
         }
+    }
+
+    private void Start()
+    {
+        tilemap = ReferenceLib.instance.tilemap;
+        selection = ReferenceLib.instance.selection;
+        player = ReferenceLib.instance.player;
     }
 
     private void Update()

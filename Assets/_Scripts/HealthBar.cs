@@ -5,10 +5,6 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-    [Header("Health")]
-
-    [SerializeField] private Player player;
-
     [Header("Clone Objects")]
 
     [SerializeField] private GameObject healthPoint;
@@ -39,7 +35,7 @@ public class HealthBar : MonoBehaviour
         Vector3 pos = initialPos;
         healthPoints = new List<Image>();
         healthPointsActive = new List<bool>();
-        for (int i = 0; i < player.MaxHealth; i++)
+        for (int i = 0; i < ReferenceLib.instance.player.MaxHealth; i++)
         {
             healthPoints.Add(Instantiate(healthPoint, pos, Quaternion.identity, transform).GetComponent<Image>());
             healthPointsActive.Add(true);
@@ -51,9 +47,9 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealth() {
         // count from every dead healthpoint 
-        for (int i = 0; i < player.MaxHealth; i++)
+        for (int i = 0; i < ReferenceLib.instance.player.MaxHealth; i++)
         {
-            activated = i < player.Health;
+            activated = i < ReferenceLib.instance.player.Health;
             if (healthPointsActive[i] != activated)
             {
                 if (i == 0 && activated)

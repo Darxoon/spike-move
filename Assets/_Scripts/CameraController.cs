@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     public Rect view;
 
     [SerializeField] private AnimationCurve curve;
-    [SerializeField] private Camera mainCam;
 
     [SerializeField] private CameraBounds cameraBounds;
     [SerializeField] private RectTransform camMovementPane;
@@ -20,10 +17,15 @@ public class CameraController : MonoBehaviour
     private Vector3 camMovementPaneSize;
     private Vector3 camMovementPanePos;
 
+    // References
+
+    private Camera mainCam;
+
     private void Start()
     {
         currentView.width = view.width;
         currentView.height = view.height;
+        mainCam = ReferenceLib.instance.mainCam;
     }
 
     private void Update()

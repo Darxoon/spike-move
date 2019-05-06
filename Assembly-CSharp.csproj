@@ -71,6 +71,7 @@
     <Compile Include="Assets\_Scripts\NotComponents\CollisionType.cs" />
     <Compile Include="Assets\_Scripts\NotComponents\TileEvent.cs" />
     <Compile Include="Assets\_Scripts\Player.cs" />
+    <Compile Include="Assets\_Scripts\ReferenceLib.cs" />
     <Compile Include="Assets\_Scripts\TileEventInit.cs" />
     <Compile Include="Assets\_Scripts\TooltipContent.cs" />
     <Compile Include="Assets\_Scripts\TooltipFollow.cs" />

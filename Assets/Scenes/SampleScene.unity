@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 1043321657}
   - component: {fileID: 1043321658}
   - component: {fileID: 1043321659}
+  - component: {fileID: 1043321660}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1208,11 +1209,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ae7909dd9cb3841b9a5e6b8134222b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1043321658}
-  tilemap: {fileID: 591447770}
-  grid: {fileID: 390856335}
-  selection: {fileID: 1519535477}
   tileHeartUsed: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
+--- !u!114 &1043321660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043321655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218fc236d7fe66f4d9a92a057ade97fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1043321658}
+  tileEventInit: {fileID: 1043321659}
+  selection: {fileID: 1519535477}
+  tooltipContent: {fileID: 1763094856}
+  tooltipFollow: {fileID: 1763094853}
+  grid: {fileID: 390856335}
+  tilemap: {fileID: 591447770}
 --- !u!1 &1051928559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,48 +1813,48 @@ MonoBehaviour:
   descriptionLabel: {fileID: 1873744698}
   tilesEditor:
   - name: Harmful Tile
-    tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
     description: hurts you 1 hp
+    tile: {fileID: 11400000, guid: b38f5b939d12b7146ae529d85b280308, type: 2}
     tileEvent: 1
     collisionType: 0
   - name: Heart
-    tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     description: Fills your hp to maximum
+    tile: {fileID: 11400000, guid: 835b48bddcaaf5a4d90411d6677c4e3c, type: 2}
     tileEvent: 3
     collisionType: 0
   - name: Used heart
-    tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     description: was already used
+    tile: {fileID: 11400000, guid: d7855a4215c19024abd6368dc1118494, type: 2}
     tileEvent: 2
     collisionType: 0
   - name: Normal plate
-    tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     description: doesn't do anything
+    tile: {fileID: 11400000, guid: 917a6113694f728409c860d0a9367400, type: 2}
     tileEvent: 2
     collisionType: 0
   - name: Spawn
-    tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     description: Here your player spawns
+    tile: {fileID: 11400000, guid: 782c76ce626d83d47b835a6dedfbbd1f, type: 2}
     tileEvent: 2
     collisionType: 0
   - name: Goal
-    tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     description: the eNd of the lEvEl
+    tile: {fileID: 11400000, guid: 397fc80ab9dac6c418a5b6a0f677000f, type: 2}
     tileEvent: 4
     collisionType: 0
   - name: Goal
-    tile: {fileID: 11400000, guid: a974b83f32fec114bb4565dfe7a777c2, type: 2}
     description: the eNd of the lEvEl
+    tile: {fileID: 11400000, guid: a974b83f32fec114bb4565dfe7a777c2, type: 2}
     tileEvent: 5
     collisionType: 0
   - name: Goal
-    tile: {fileID: 11400000, guid: f6be2bed4e9e2004e8d896f96ac56ed4, type: 2}
     description: the eNd of the lEvEl
+    tile: {fileID: 11400000, guid: f6be2bed4e9e2004e8d896f96ac56ed4, type: 2}
     tileEvent: 6
     collisionType: 0
   - name: Wall
-    tile: {fileID: 11400000, guid: 2a46c88ada7aeb04d8ce258fffe88918, type: 2}
     description: You can't cross it
+    tile: {fileID: 11400000, guid: 2a46c88ada7aeb04d8ce258fffe88918, type: 2}
     tileEvent: 2
     collisionType: 1
   missingTile:

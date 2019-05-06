@@ -3,24 +3,15 @@ using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Vector3 offset;
-
     [Header("Debugging")]
 
     [SerializeField] private bool collideWithWalls = true;
-    [SerializeField] private bool doTileEvents = true;
+    [SerializeField] private bool doTileEvents = true; 
 
-    [Header("References")]
+    [Header("Misc")]
+    [SerializeField] private Vector3 offset;
 
-    [SerializeField] private Grid grid;
-    [SerializeField] private Tilemap tilemap;
-    [SerializeField] private TooltipContent tooltipContent;
-    [SerializeField] private TileEventInit tileEventInit;
-    [SerializeField] private FollowMouse selection;
-    [SerializeField] private HealthBar healthBar;
-
-    [HideInInspector] public Vector3Int gridCoords = new Vector3Int(); 
-
+    
     [Header("Health")]
 
     [SerializeField] private int maxHealth = 5;
@@ -32,10 +23,33 @@ public class Player : MonoBehaviour
     public int Health { get => health; set => HealthUpdate(value); }
 
 
+
+    [HideInInspector] public Vector3Int gridCoords = new Vector3Int(); 
+
+
+
     private Tile newTile;
     private TooltipContent.TileDescription tileProperties; 
     private int currentHealth = -1;
-     
+    
+    // References
+
+    private Grid grid;
+    private Tilemap tilemap;
+    private TooltipContent tooltipContent;
+    private TileEventInit tileEventInit;
+    private FollowMouse selection;
+    private HealthBar healthBar;
+
+    private void Start()
+    {
+        grid = ReferenceLib.instance.grid;
+        tilemap = ReferenceLib.instance.tilemap;
+        tooltipContent = ReferenceLib.instance.tooltipContent;
+        tileEventInit = ReferenceLib.instance.tileEventInit;
+        selection = ReferenceLib.instance.selection;
+        healthBar = ReferenceLib.instance.healthBar;
+    }
 
     private void Update()
     {

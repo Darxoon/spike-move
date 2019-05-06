@@ -1,20 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TileEventInit : MonoBehaviour
 {
-    [Header("References")] 
-
-    [SerializeField] private Player player;
-    [SerializeField] private Tilemap tilemap; 
-    [SerializeField] private Grid grid; 
-    [SerializeField] private FollowMouse selection;
-
     [Header("Tiles")]
 
     [SerializeField] private Tile tileHeartUsed;
+
+    // References
+
+    private Player player;
+    private Tilemap tilemap; 
+    private Grid grid; 
+    private FollowMouse selection;
+
+    private void Start()
+    {
+        player = ReferenceLib.instance.player;
+        tilemap = ReferenceLib.instance.tilemap;
+        grid = ReferenceLib.instance.grid;
+        selection = ReferenceLib.instance.selection;
+    }
 
     public void DoAction(TileEvent tileEvent)
     {
